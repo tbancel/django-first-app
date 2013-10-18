@@ -1,13 +1,16 @@
 # Django settings for first_app project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('tbancel', 'bancel.thomas@gmail.com'),
 )
 
 MANAGERS = ADMINS
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DATABASES = {
     'default': {
@@ -103,10 +106,11 @@ ROOT_URLCONF = 'first_app.urls'
 WSGI_APPLICATION = 'first_app.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+    )
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -117,9 +121,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
